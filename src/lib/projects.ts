@@ -61,32 +61,29 @@ export const categories: Category[] = [
                 install: {
                     mac: {
                         steps: [
-                            { label: "Install via Homebrew", command: "brew install task-cli" },
-                            { label: "Verify the installation", command: "tasks --version" },
+                            {
+                                label: "Run installer script (macOS)",
+                                command: "curl -fsSL https://raw.githubusercontent.com/Yasar195/rust_cli_todo/release/install.sh | sh",
+                            },
+                            { label: "Verify the installation", command: "todo --version" },
                         ],
                     },
                     windows: {
                         steps: [
                             {
-                                label: "Download the latest release via winget",
-                                command: "winget install Yasar195.task-cli",
+                                label: "Run installer script (Windows PowerShell)",
+                                command: "irm https://raw.githubusercontent.com/Yasar195/rust_cli_todo/release/install.ps1 | iex",
                             },
-                            {
-                                label: "Verify the installation",
-                                command: "tasks --version",
-                            },
+                            { label: "Verify the installation", command: "todo --version" },
                         ],
                     },
                     linux: {
                         steps: [
                             {
-                                label: "Download the binary",
-                                command:
-                                    "curl -L https://github.com/Yasar195/rust_cli_todo/releases/latest/download/tasks-linux -o tasks",
+                                label: "Run installer script (Linux)",
+                                command: "curl -fsSL https://raw.githubusercontent.com/Yasar195/rust_cli_todo/release/install.sh | sh",
                             },
-                            { label: "Make it executable", command: "chmod +x tasks" },
-                            { label: "Move to your PATH", command: "sudo mv tasks /usr/local/bin/" },
-                            { label: "Verify the installation", command: "tasks --version" },
+                            { label: "Verify the installation", command: "todo --version" },
                         ],
                     },
                 },
