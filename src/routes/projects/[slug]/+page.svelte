@@ -4,7 +4,7 @@
   import Navbar from '$lib/components/Navbar.svelte';
   import Footer from '$lib/components/Footer.svelte';
 
-  $: project = getProject($page.params.slug);
+  $: project = getProject($page.params.slug as string);
 
   type Platform = 'mac' | 'windows' | 'linux';
   let activePlatform: Platform = 'mac';
@@ -16,10 +16,12 @@
   ];
 
   let copied = false;
-  function copyCommand(cmd: string) {
+  let copiedIndex: number | null = null;
+
+  function copyCommand(cmd: string, index: number) {
     navigator.clipboard.writeText(cmd);
-    copied = true;
-    setTimeout(() => (copied = false), 1500);
+    copiedIndex = index;
+    setTimeout(() => (copiedIndex = null), 1500);
   }
 
   let lightboxSrc: string | null = null;
@@ -123,11 +125,11 @@
               <div class="group relative flex items-center bg-gray-50 border border-gray-200 rounded-lg px-4 py-3">
                 <code class="font-mono text-sm text-gray-800 flex-1 break-all">{step.command}</code>
                 <button
-                  on:click={() => copyCommand(step.command)}
+                  on:click={() => copyCommand(step.command, i)}
                   class="ml-4 shrink-0 text-gray-400 hover:text-gray-700 transition-colors"
                   title="Copy"
                 >
-                  {#if copied}
+                  {#if copiedIndex === i}
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-500" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                     </svg>
