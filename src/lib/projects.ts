@@ -65,7 +65,7 @@ export const categories: Category[] = [
                                 label: "Run installer script (macOS)",
                                 command: "curl -fsSL https://raw.githubusercontent.com/Yasar195/rust_cli_todo/release/install.sh | sh",
                             },
-                            { label: "Verify the installation", command: "todo --version" },
+                            { label: "Verify the installation", command: "todo" },
                         ],
                     },
                     windows: {
@@ -74,7 +74,7 @@ export const categories: Category[] = [
                                 label: "Run installer script (Windows PowerShell)",
                                 command: "irm https://raw.githubusercontent.com/Yasar195/rust_cli_todo/release/install.ps1 | iex",
                             },
-                            { label: "Verify the installation", command: "todo --version" },
+                            { label: "Verify the installation", command: "todo" },
                         ],
                     },
                     linux: {
@@ -83,7 +83,7 @@ export const categories: Category[] = [
                                 label: "Run installer script (Linux)",
                                 command: "curl -fsSL https://raw.githubusercontent.com/Yasar195/rust_cli_todo/release/install.sh | sh",
                             },
-                            { label: "Verify the installation", command: "todo --version" },
+                            { label: "Verify the installation", command: "todo" },
                         ],
                     },
                 },
