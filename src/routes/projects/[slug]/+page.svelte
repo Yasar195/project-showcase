@@ -15,7 +15,6 @@
     { id: 'linux', label: 'Linux', icon: '🐧' },
   ];
 
-  let copied = false;
   let copiedIndex: number | null = null;
 
   function copyCommand(cmd: string, index: number) {
