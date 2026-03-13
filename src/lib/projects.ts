@@ -38,6 +38,59 @@ export type Category = {
 
 export const categories: Category[] = [
     {
+        id: "genai-rag",
+        name: "Generative AI and RAG",
+        description: "Cutting-edge AI applications focused on Retrieval-Augmented Generation and Model Context Protocol.",
+        projects: [
+            {
+                slug: "mcply",
+                title: "mcply",
+                type: "CLI Tool",
+                language: "Rust",
+                description:
+                    "Create Model Context Protocol (MCP) servers in real-time. A powerful Rust-based binary for instant tool orchestration.",
+                longDescription:
+                    "mcply is a high-performance Rust utility that simplifies the creation and management of MCP servers. Just like our task manager, it's a standalone binary that allows you to define tools, connect to various AI providers, and expose them as MCP-compatible interfaces in seconds. Built for speed and flexibility, it bridges the gap between local resources and LLMs through standardized protocol implementation.",
+                tags: ["Rust", "MCP", "Generative AI", "RAG", "CLI"],
+                github: "https://github.com/Yasar195/mcply",
+                screenshots: [
+                    { src: "/screenshots/mcply-main.png", caption: "Main Menu" },
+                    { src: "/screenshots/mcply-models.png", caption: "Model Management" },
+                    { src: "/screenshots/mcply-servers.png", caption: "MCP Server Management" },
+                ],
+                install: {
+                    mac: {
+                        steps: [
+                            {
+                                label: "Run installer script (macOS)",
+                                command: "curl -fsSL https://raw.githubusercontent.com/Yasar195/mcply/release/install.sh | sh",
+                            },
+                            { label: "Verify the installation", command: "mcply" },
+                        ],
+                    },
+                    windows: {
+                        steps: [
+                            {
+                                label: "Run installer script (Windows PowerShell)",
+                                command: "irm https://raw.githubusercontent.com/Yasar195/mcply/release/install.ps1 | iex",
+                            },
+                            { label: "Verify the installation", command: "mcply" },
+                        ],
+                    },
+                    linux: {
+                        steps: [
+                            {
+                                label: "Run installer script (Linux)",
+                                command: "curl -fsSL https://raw.githubusercontent.com/Yasar195/mcply/release/install.sh | sh",
+                            },
+                            { label: "Verify the installation", command: "mcply" },
+                        ],
+                    },
+                },
+            },
+        ],
+    },
+    {
         id: "developer-utility",
         name: "Developer Utilities",
         description: "Command-line tools and utilities built for developer productivity.",
