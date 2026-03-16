@@ -21,7 +21,7 @@
         <div class="grid gap-3 sm:grid-cols-2">
           {#each category.projects as project}
             <a
-              href="/projects/{project.slug}"
+              href="/{project.slug}"
               class="group flex flex-col p-4 border border-gray-200 rounded-xl hover:border-gray-400 transition-colors"
             >
               <div class="flex items-start justify-between gap-3 mb-2">
